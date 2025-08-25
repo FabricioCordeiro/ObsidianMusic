@@ -1,4 +1,4 @@
-﻿using ObsidianMusic.Domain.Aggregates.Media;
+﻿using ObsidianMusic.Domain.Aggregates.MediaInfo;
 
 namespace ObsidianMusic.Domain.Ports.Providers
 {

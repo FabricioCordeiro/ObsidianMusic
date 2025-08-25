@@ -1,15 +1,15 @@
-﻿using ObsidianMusic.Domain.Aggregates.Media;
+﻿using ObsidianMusic.Domain.Aggregates.MediaInfo;
 using ObsidianMusic.Domain.Ports.Providers;
 using ObsidianMusic.Infrastructure.Explode.Mappers;
 using YoutubeExplode;
 
 namespace ObsidianMusic.Infrastructure.Explode.Adapters
 {
-    public class MediaAdapter : IMediaInfoProvider
+    public class MediaInfoAdapter : IMediaInfoProvider
     {
         private readonly YoutubeClient _youtube;
 
-        public MediaAdapter()
+        public MediaInfoAdapter()
         {
             _youtube = new YoutubeClient();
         }

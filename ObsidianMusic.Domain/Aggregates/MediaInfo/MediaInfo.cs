@@ -1,4 +1,4 @@
-﻿namespace ObsidianMusic.Domain.Aggregates.Media
+﻿namespace ObsidianMusic.Domain.Aggregates.MediaInfo
 {
     public class MediaInfo(
         string id,

@@ -1,7 +1,4 @@
-﻿using ObsidianMusic.Domain.Interfaces.Types;
-using ObsidianMusic.Domain.ValueObjects;
-
-namespace ObsidianMusic.Domain.Entity
+﻿namespace ObsidianMusic.Domain.Aggregates.Media
 {
     public class MediaInfo(
         string id,

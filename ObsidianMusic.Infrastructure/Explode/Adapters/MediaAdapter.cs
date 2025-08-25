@@ -1,15 +1,15 @@
-﻿using ObsidianMusic.Domain.Interfaces.Providers;
-using ObsidianMusic.Domain.Interfaces.Types;
+﻿using ObsidianMusic.Domain.Aggregates.Media;
+using ObsidianMusic.Domain.Ports.Providers;
 using ObsidianMusic.Infrastructure.Explode.Mappers;
 using YoutubeExplode;
 
 namespace ObsidianMusic.Infrastructure.Explode.Adapters
 {
-    public class YoutubeMediaAdapter : IMediaInfoProvider
+    public class MediaAdapter : IMediaInfoProvider
     {
         private readonly YoutubeClient _youtube;
 
-        public YoutubeMediaAdapter()
+        public MediaAdapter()
         {
             _youtube = new YoutubeClient();
         }
@@ -19,7 +19,7 @@ namespace ObsidianMusic.Infrastructure.Explode.Adapters
             var media = await _youtube.Videos.GetAsync(urlOrId);
             var channel = await _youtube.Channels.GetAsync(media.Author.ChannelUrl);
 
-            return YoutubeMediaToDomainMapper.Map(media, channel);
+            return media.MapToMediaInfo(channel.Thumbnails);
         }
     }
 }

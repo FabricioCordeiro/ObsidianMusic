@@ -1,6 +1,4 @@
-﻿using ObsidianMusic.Domain.ValueObjects;
-
-namespace ObsidianMusic.Domain.Interfaces.Types
+﻿namespace ObsidianMusic.Domain.Aggregates.Media
 {
     public interface IMediaInfo
     {

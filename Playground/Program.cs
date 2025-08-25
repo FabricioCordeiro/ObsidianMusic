@@ -1,9 +1,9 @@
-﻿using ObsidianMusic.Domain.Interfaces.Providers;
+﻿using ObsidianMusic.Domain.Ports.Providers;
 using ObsidianMusic.Infrastructure.Explode.Adapters;
 
 Console.OutputEncoding = System.Text.Encoding.UTF8;
 
-IMediaInfoProvider provider = new YoutubeMediaAdapter();
+IMediaInfoProvider provider = new MediaAdapter();
 
 var url = "https://www.youtube.com/watch?v=jq0pIc9qqO8";
 var media = await provider.GetMediaInfoAsync(url);

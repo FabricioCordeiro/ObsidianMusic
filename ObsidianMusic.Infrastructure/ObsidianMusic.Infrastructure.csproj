@@ -11,10 +11,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Explode\Models\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <PackageReference Include="YoutubeExplode" Version="6.5.4" />
   </ItemGroup>
 

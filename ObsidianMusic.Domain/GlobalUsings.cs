@@ -1,0 +1,1 @@
+﻿global using ObsidianMusic.Domain.ValueObjects;

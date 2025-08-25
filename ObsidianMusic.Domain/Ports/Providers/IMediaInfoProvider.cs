@@ -1,6 +1,6 @@
-﻿using ObsidianMusic.Domain.Interfaces.Types;
+﻿using ObsidianMusic.Domain.Aggregates.Media;
 
-namespace ObsidianMusic.Domain.Interfaces.Providers
+namespace ObsidianMusic.Domain.Ports.Providers
 {
     public interface IMediaInfoProvider
     {

@@ -1,12 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Microsoft.Extensions.DependencyInjection;
 
 namespace ObsidianMusic.Application
 {
-    internal class ConfigureServices
+    public static class ConfigureServices
     {
+        public static IServiceCollection AddApplicationServices(this IServiceCollection services)
+        {
+            services.AddMediatR(cfg =>
+            {
+                cfg.LicenseKey = "";
+                cfg.RegisterServicesFromAssembly(typeof(ConfigureServices).Assembly);
+            });
+
+            return services;
+        }
     }
 }

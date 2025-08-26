@@ -5,19 +5,12 @@ using YoutubeExplode;
 
 namespace ObsidianMusic.Infrastructure.Explode.Adapters
 {
-    public class MediaInfoAdapter : IMediaInfoProvider
+    public class MediaInfoAdapter(YoutubeClient youtubeClient) : IMediaInfoProvider
     {
-        private readonly YoutubeClient _youtube;
-
-        public MediaInfoAdapter()
-        {
-            _youtube = new YoutubeClient();
-        }
-
         public async Task<IMediaInfo> GetMediaInfoAsync(string urlOrId)
         {
-            var media = await _youtube.Videos.GetAsync(urlOrId);
-            var channel = await _youtube.Channels.GetAsync(media.Author.ChannelUrl);
+            var media = await youtubeClient.Videos.GetAsync(urlOrId);
+            var channel = await youtubeClient.Channels.GetAsync(media.Author.ChannelUrl);
 
             return media.MapToMediaInfo(channel.Thumbnails);
         }

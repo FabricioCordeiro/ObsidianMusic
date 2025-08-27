@@ -11,6 +11,7 @@ namespace ObsidianMusic.Infrastructure
         {
             services.AddSingleton(new YoutubeClient());
             services.AddSingleton<IMediaInfoProvider, MediaInfoAdapter>();
+            services.AddSingleton<IMediaSearchProvider, MediaSearchAdapter>();
 
             return services;
         }

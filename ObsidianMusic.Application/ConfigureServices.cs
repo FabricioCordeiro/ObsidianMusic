@@ -8,7 +8,7 @@ namespace ObsidianMusic.Application
         {
             services.AddMediatR(cfg =>
             {
-                cfg.LicenseKey = "";
+                cfg.LicenseKey = string.Empty; // Adicione sua chave de licença MediatR aqui
                 cfg.RegisterServicesFromAssembly(typeof(ConfigureServices).Assembly);
             });
 

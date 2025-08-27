@@ -1,5 +1,5 @@
 ﻿using MediatR;
-using ObsidianMusic.Application.Queries.Media;
+using ObsidianMusic.Application.Queries.MediaInfo;
 using ObsidianMusic.Domain.Aggregates.MediaInfo;
 using ObsidianMusic.Domain.Ports.Providers;
 

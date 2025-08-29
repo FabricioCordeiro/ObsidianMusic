@@ -5,32 +5,7 @@
 <MudDialogProvider />
 <MudSnackbarProvider />
 
-@* <MudLayout>
-    <MudAppBar>
-        Obsidian Music
-    </MudAppBar>
-    <MudMainContent>
-        @Body
-    </MudMainContent>
-</MudLayout> *@
-
-@* <MudLayout>
-    <MudAppBar Elevation="4" Color="Color.Primary">
-        <MudText Typo="Typo.h6">Obsidian Music</MudText>
-    </MudAppBar>
-
-    <MudMainContent Class="pa-4" Style="padding-bottom:80px;">
-        @Body
-    </MudMainContent>
-
-    <MudPaper Elevation="6" Square="true" Class="d-flex justify-space-around gap-4"
-              Style="@($"position:fixed; bottom:0; left:0; right:0; padding:10px; color:{Colors.Purple.Accent3};")">
-        <MudIconButton Icon="@Icons.Material.Filled.Home" Color="Color.Primary" />
-        <MudIconButton Icon="@Icons.Material.Outlined.QueueMusic" />
-        <MudIconButton Icon="@Icons.Material.Outlined.History" />
-        <MudIconButton Icon="@Icons.Material.Outlined.LibraryMusic" />
-    </MudPaper>
-</MudLayout> *@
+@using ObsidianMusic.Components.Shared.Navigation;
 
 <MudLayout>
     <!-- AppBar -->
@@ -43,87 +18,5 @@
         @Body
     </MudMainContent>
 
-    @*     <!-- BottomBar fixa com ícones + labels -->
-    <MudPaper Elevation="6" Square="true"
-              Class="d-flex justify-space-around align-center pa-0 pb-2"
-              Style="position:fixed; bottom:0; left:0; right:0; padding:10px; background-color:#1e1e2f; color:white;">
-
-        <!-- Item Home -->
-        <MudStack AlignItems="AlignItems.Center" Spacing="0">
-            <MudIconButton Icon="@Icons.Material.Outlined.Home" Color="Color.Secondary" />
-            <MudText Typo="Typo.caption">Início</MudText>
-        </MudStack>
-
-        <!-- Item Fila -->
-        <MudStack AlignItems="AlignItems.Center" Spacing="0">
-            <MudIconButton Icon="@Icons.Material.Outlined.QueueMusic" Color="Color.Secondary" />
-            <MudText Typo="Typo.caption">Fila</MudText>
-        </MudStack>
-
-        <!-- Item Downloads -->
-        <MudStack AlignItems="AlignItems.Center" Spacing="0">
-            <MudIconButton Icon="@Icons.Material.Outlined.Downloading" Color="Color.Secondary" />
-            <MudText Typo="Typo.caption">Downloads</MudText>
-        </MudStack>
-
-        <!-- Item Biblioteca -->
-        <MudStack AlignItems="AlignItems.Center" Spacing="0">
-            <MudIconButton Icon="@Icons.Material.Outlined.LibraryMusic" Color="Color.Secondary" />
-            <MudText Typo="Typo.caption">Biblioteca</MudText>
-        </MudStack>
-
-    </MudPaper> *@
-
-    <MudPaper Elevation="6" Square="true"
-              Class="bottom-bar d-flex flex-grow-1 justify-space-around gap-4 py-1"
-              Style="position:fixed; bottom:0; left:0; right:0; background-color:#1e1e2f;">
-
-        <!-- Home -->
-        <div class="bottom-bar-item" @onclick='() => OnBottomClick("Destaques")'>
-            <MudIcon Icon="@Icons.Material.Outlined.Home" Size="Size.Medium" />
-            <MudText Typo="Typo.caption">Destaques</MudText>
-        </div>
-
-        <!-- Fila -->
-        <div class="bottom-bar-item" @onclick='() => OnBottomClick("Reprodução")'>
-            <MudIcon Icon="@Icons.Material.Filled.QueueMusic" Size="Size.Medium" Style="@($"color:{Colors.Purple.Lighten5};")" />
-            <MudText Typo="Typo.caption" Style="@($"color:{Colors.Purple.Lighten5};")">Reprodução</MudText>
-        </div>
-
-        <!-- Downloads -->
-        <div class="bottom-bar-item" @onclick='() => OnBottomClick("Downloads")'>
-            <MudIcon Icon="@Icons.Material.Outlined.DownloadForOffline" Size="Size.Medium" />
-            <MudText Typo="Typo.caption">Downloads</MudText>
-        </div>
-
-        <!-- Biblioteca -->
-        <div class="bottom-bar-item" @onclick='() => OnBottomClick("Biblioteca")'>
-            <MudIcon Icon="@Icons.Material.Outlined.LibraryMusic" Size="Size.Medium"  />
-            <MudText Typo="Typo.caption">Biblioteca</MudText>
-        </div>
-
-    </MudPaper>
-
-    <style>
-        .bottom-bar-item {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            cursor: pointer;
-            padding: 4px 8px;
-            user-select: none;
-        }
-
-            .bottom-bar-item:hover {
-                opacity: 0.8;
-            }
-    </style>
+    <NavigationBar />
 </MudLayout>
-
-    @code {
-        void OnBottomClick(string label)
-        {
-            // Console.WriteLine($"Clicou em {label}");
-            // // Aqui você pode trocar o conteúdo do MainContent
-        }
-    }

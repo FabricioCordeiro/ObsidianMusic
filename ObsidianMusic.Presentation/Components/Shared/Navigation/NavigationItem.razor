@@ -1,0 +1,36 @@
+﻿@inject NavigationManager Navigation
+
+<div class="bottom-bar-item" @onclick="OnClick">
+    <MudIcon Style="@(IsActive() ? $"color:{Colors.Purple.Lighten4};" : string.Empty)" Icon="@(IsActive() ? ActivatedIcon : Icon)" Size="Size.Medium" />
+    <MudText Typo="Typo.caption" Style="@(IsActive() ? $"color:{Colors.Purple.Lighten4};" : string.Empty)">@Title</MudText>
+</div>
+
+@code {
+    [Parameter] public required string Icon { get; set; }
+    [Parameter] public required string ActivatedIcon { get; set; }
+    [Parameter] public required string Title { get; set; }
+    [Parameter] public required string PageString { get; set; }
+    [Parameter] public EventCallback<string> OnBottomClick { get; set; }
+
+    private EventHandler<LocationChangedEventArgs>? _locationChangedHandler;
+
+    protected override void OnInitialized()
+    {
+        _locationChangedHandler = (_, __) => InvokeAsync(StateHasChanged);
+        Navigation.LocationChanged += _locationChangedHandler;
+    }
+
+    private async Task OnClick()
+    {
+        if (OnBottomClick.HasDelegate)
+        {
+            await OnBottomClick.InvokeAsync(PageString);
+        }
+    }
+
+    private bool IsActive()
+    {
+        var current = Navigation.ToBaseRelativePath(Navigation.Uri).ToLower();
+        return current == PageString.ToLower();
+    }
+}

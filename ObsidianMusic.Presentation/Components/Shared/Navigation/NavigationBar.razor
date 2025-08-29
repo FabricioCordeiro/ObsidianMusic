@@ -1,0 +1,58 @@
+﻿@inject NavigationManager Navigation
+
+<style>
+    .bottom-bar-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        cursor: pointer;
+        padding: 4px 8px;
+        user-select: none;
+    }
+
+        .bottom-bar-item:hover {
+            opacity: 0.8;
+        }
+</style>
+
+<MudPaper Elevation="6" Square="true"
+          Class="bottom-bar d-flex flex-grow-1 justify-space-around gap-4 py-1"
+          Style="position:fixed; bottom:0; left:0; right:0; background-color:#1e1e2f;">
+
+    <NavigationItem Icon="@Icons.Material.Outlined.Search"
+                    ActivatedIcon="@Icons.Material.Filled.Search"
+                    PageString="@string.Empty"
+                    Title="Pesquisar"
+                    OnBottomClick="HandleBottomClick">
+    </NavigationItem>
+
+    <NavigationItem Icon="@Icons.Material.Filled.QueueMusic"
+                    ActivatedIcon="@Icons.Material.Outlined.QueueMusic"
+                    PageString="Reproduction"
+                    Title="Reprodução"
+                    OnBottomClick="HandleBottomClick">
+    </NavigationItem>
+
+    <NavigationItem Icon="@Icons.Material.Outlined.DownloadForOffline"
+                    ActivatedIcon="@Icons.Material.Filled.DownloadForOffline"
+                    PageString="Downloads"
+                    Title="Downloads"
+                    OnBottomClick="HandleBottomClick">
+    </NavigationItem>
+
+    <NavigationItem Icon="@Icons.Material.Outlined.LibraryMusic"
+                    ActivatedIcon="@Icons.Material.Filled.LibraryMusic"
+                    PageString="Library"
+                    Title="Biblioteca"
+                    OnBottomClick="HandleBottomClick">
+    </NavigationItem>
+
+</MudPaper>
+
+@code {
+    private void HandleBottomClick(string page)
+    {
+        var url = page.ToLower();
+        Navigation.NavigateTo($"/{url}");
+    }
+}

@@ -60,8 +60,4 @@
       <ProjectReference Include="..\ObsidianMusic.Infrastructure\ObsidianMusic.Infrastructure.csproj" />
     </ItemGroup>
 
-    <ItemGroup>
-      <Folder Include="Components\Shared\" />
-    </ItemGroup>
-
 </Project>

@@ -8,6 +8,8 @@ namespace ObsidianMusic
         public static MauiApp CreateMauiApp()
         {
             var builder = MauiApp.CreateBuilder();
+            AppContext.SetSwitch("System.Reflection.NullabilityInfoContext.IsSupported", true);
+
             builder
                 .UseMauiApp<App>()
                 .ConfigureFonts(fonts =>

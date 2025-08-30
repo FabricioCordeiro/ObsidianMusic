@@ -1,8 +1,15 @@
 ﻿@inject NavigationManager Navigation
+@implements IDisposable
 
-<div class="bottom-bar-item" @onclick="OnClick">
-    <MudIcon Style="@(IsActive() ? $"color:{Colors.Purple.Lighten4};" : string.Empty)" Icon="@(IsActive() ? ActivatedIcon : Icon)" Size="Size.Medium" />
-    <MudText Typo="Typo.caption" Style="@(IsActive() ? $"color:{Colors.Purple.Lighten4};" : string.Empty)">@Title</MudText>
+<div class="bottom-navbar-item" @onclick="OnClick">
+    <MudIcon Style="@IsActiveStyle()"
+             Icon="@(IsActive() ? ActivatedIcon : Icon)"
+             Size="Size.Medium" />
+
+    <MudText Typo="Typo.caption"
+             Style="@IsActiveStyle()">
+        @Title
+    </MudText>
 </div>
 
 @code {
@@ -10,7 +17,6 @@
     [Parameter] public required string ActivatedIcon { get; set; }
     [Parameter] public required string Title { get; set; }
     [Parameter] public required string PageString { get; set; }
-    [Parameter] public EventCallback<string> OnBottomClick { get; set; }
 
     private EventHandler<LocationChangedEventArgs>? _locationChangedHandler;
 
@@ -20,17 +26,24 @@
         Navigation.LocationChanged += _locationChangedHandler;
     }
 
-    private async Task OnClick()
+    private void OnClick()
     {
-        if (OnBottomClick.HasDelegate)
-        {
-            await OnBottomClick.InvokeAsync(PageString);
-        }
+        Navigation.NavigateTo($"/{PageString.ToLower()}");
     }
 
     private bool IsActive()
     {
         var current = Navigation.ToBaseRelativePath(Navigation.Uri).ToLower();
         return current == PageString.ToLower();
+    }
+
+    private string IsActiveStyle()
+    {
+        return IsActive() ? "color:white !important;" : "opacity: 0.8;";
+    }
+
+    public void Dispose()
+    {
+        Navigation.LocationChanged -= _locationChangedHandler;
     }
 }

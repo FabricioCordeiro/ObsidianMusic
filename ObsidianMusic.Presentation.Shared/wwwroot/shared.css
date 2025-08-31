@@ -1,4 +1,9 @@
-﻿.navbar {
+﻿.main-content {
+    height: calc(100vh - 60px);
+    overflow-y: auto;
+}
+
+.navbar {
     position: fixed;
     bottom: 0;
     left: 0;

@@ -10,8 +10,10 @@
 <MudLayout>
     <Appbar />
 
-    <MudMainContent Class="pa-4" Style="padding-bottom:100px;">
-        @Body
+    <MudMainContent Class="main-content">
+        <MudContainer Class="justify-center py-6" MaxWidth="MaxWidth.Medium">
+            @Body
+        </MudContainer>
     </MudMainContent>
 
     <NavigationBar />

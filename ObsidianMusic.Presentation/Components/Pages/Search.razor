@@ -1,37 +1,33 @@
 ﻿@page "/"
 
-<MudContainer MaxWidth="MaxWidth.Medium" Class="d-flex justify-center mt-12">
-    <MudPaper Class="p-6 rounded-lg" Elevation="4" Style="width:100%; max-width:600px;">
-        <MudStack Spacing="3">
 
-            <MudText Typo="Typo.h5" Align="Align.Center" Class="mb-4">
-                🔍 Pesquisar Músicas
-            </MudText>
+<MudPaper Elevation="4">
 
-            <MudTextField T="string" Placeholder="Digite o nome da música ou artista..." 
-                          Variant="Variant.Outlined" 
-                          Adornment="Adornment.Start" 
-                          AdornmentIcon="@Icons.Material.Filled.Search" 
-                          Class="w-100" 
-                          InputType="InputType.Search"/>
+    <MudText Typo="Typo.h5" Align="Align.Center" Class="mb-4">
+        🔍 Pesquisar Músicas
+    </MudText>
 
-            <MudDivider Class="my-4" />
+    <MudTextField T="string" Placeholder="Digite o nome da música ou artista..."
+                  Variant="Variant.Outlined"
+                  Adornment="Adornment.Start"
+                  AdornmentIcon="@Icons.Material.Filled.Search"
+                  Class="w-100"
+                  InputType="InputType.Search" />
 
-            <MudList Dense="true" T="string">
-                <MudListItem>
-                    <MudAvatar Icon="@Icons.Material.Filled.MusicNote" Color="Color.Primary" />
-                    <MudText Class="ml-2">Imagine Dragons - Believer</MudText>
-                </MudListItem>
-                <MudListItem>
-                    <MudAvatar Icon="@Icons.Material.Filled.MusicNote" Color="Color.Secondary" />
-                    <MudText Class="ml-2">The Weeknd - Blinding Lights</MudText>
-                </MudListItem>
-                <MudListItem>
-                    <MudAvatar Icon="@Icons.Material.Filled.MusicNote" Color="Color.Tertiary" />
-                    <MudText Class="ml-2">Arctic Monkeys - Do I Wanna Know?</MudText>
-                </MudListItem>
-            </MudList>
+    <MudDivider Class="my-4" />
 
-        </MudStack>
-    </MudPaper>
-</MudContainer>
+    <MudList Dense="true" T="string">
+        <MudListItem>
+            <MudAvatar Icon="@Icons.Material.Filled.MusicNote" Color="Color.Primary" />
+            <MudText Class="ml-2">Imagine Dragons - Believer</MudText>
+        </MudListItem>
+        <MudListItem>
+            <MudAvatar Icon="@Icons.Material.Filled.MusicNote" Color="Color.Secondary" />
+            <MudText Class="ml-2">The Weeknd - Blinding Lights</MudText>
+        </MudListItem>
+        <MudListItem>
+            <MudAvatar Icon="@Icons.Material.Filled.MusicNote" Color="Color.Tertiary" />
+            <MudText Class="ml-2">Arctic Monkeys - Do I Wanna Know?</MudText>
+        </MudListItem>
+    </MudList>
+</MudPaper>

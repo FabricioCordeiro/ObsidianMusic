@@ -1,0 +1,26 @@
+﻿<MudTextField @ref="_searchField"
+              T="string"
+              AutoFocus
+              FullWidth
+              Immediate
+              Clearable
+              Placeholder="Pesquisar"
+              Variant="Variant.Outlined"
+              Adornment="Adornment.Start"
+              AdornmentIcon="@Icons.Material.Filled.Search"
+              Margin="Margin.Dense"
+              OnKeyDown="HandleKeyDown" />
+@code {
+    [Parameter] public EventCallback<string> OnSearch { get; set; }
+    private MudTextField<string> _searchField = new();
+
+    private async Task HandleKeyDown(KeyboardEventArgs e)
+    {
+        if (e.Key == "Enter")
+        {
+            await _searchField.BlurAsync();
+            if (OnSearch.HasDelegate)
+                await OnSearch.InvokeAsync(_searchField.Text);
+        }
+    }
+}

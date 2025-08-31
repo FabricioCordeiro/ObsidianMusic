@@ -1,14 +1,20 @@
 ﻿.main-content {
-    height: calc(100vh - 60px);
+    height: calc(100vh - 108px);
     overflow-y: auto;
+    margin-top:47px;
+    padding:0px !important;
+}
+
+.appbar {
+    background-color: rgba(30, 30, 47, 0.5);
+    color: white;
 }
 
 .navbar {
     position: fixed;
-    bottom: 0;
     left: 0;
     right: 0;
-    background-color: #1e1e2f;
+    background-color: rgba(30, 30, 47, 0.5);
 }
 
 .bottom-navbar-item {

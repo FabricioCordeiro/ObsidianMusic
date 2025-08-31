@@ -58,10 +58,7 @@
       <ProjectReference Include="..\ObsidianMusic.Application\ObsidianMusic.Application.csproj" />
       <ProjectReference Include="..\ObsidianMusic.Domain\ObsidianMusic.Domain.csproj" />
       <ProjectReference Include="..\ObsidianMusic.Infrastructure\ObsidianMusic.Infrastructure.csproj" />
-    </ItemGroup>
-
-    <ItemGroup>
-      <Folder Include="Components\Shared\ErrorBoundary\" />
+      <ProjectReference Include="..\ObsidianMusic.Presentation.Shared\ObsidianMusic.Presentation.Shared.csproj" />
     </ItemGroup>
 
 </Project>
